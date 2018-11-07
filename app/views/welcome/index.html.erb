@@ -9,11 +9,21 @@
   <%= text_field_tag :q, params[:q] %>
   <%= submit_tag :Search %>
 <% end %>
-<ul>
-  <% @tasks.each do |b| %>
-    <li>
-      <%= b.title %>
-      <%= button_tag 'X', 'data-url' => task_path(b), 'data-remote' => true, 'data-method' => :delete %>
-    </li>
+
+<div id="tasks">
+  <% @tasks.each do |task| %>
+    <%= form_for task, remote: true do |f| %>
+      <div id="<%= "task_#{task.id}" %>">
+        <%= f.text_field :title,  placeholder: task.title  %>
+          <%= link_to 'X', task, method: :delete, :remote => true, :class => 'delete_task' %>
+          <%= f.check_box :is_done  %>
+          </br>
+        </div>
+      <div class="form-group">
+      <%= f.submit %>
+      </div>
+    <% end %>
   <% end %>
-</ul>
+</div>
+
+
