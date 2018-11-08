@@ -5,23 +5,25 @@
 <% end %>
 
 <h2>Tasks</h2>
-<%= form_tag tasks_path, method: :get do |f| %>
-  <%= text_field_tag :q, params[:q] %>
-  <%= submit_tag :Search %>
-<% end %>
+<div>
+  <input id="search_field"></input>
+  <button id="search_btn">Search</button>
+</div>
 
 <div id="tasks">
   <% @tasks.each do |task| %>
+  <div id="<%= "task_#{task.id}" %>" class="all_tasks">
     <%= form_for task, remote: true do |f| %>
-      <div id="<%= "task_#{task.id}" %>">
-        <%= f.text_field :title,  placeholder: task.title  %>
-          <%= link_to 'X', task, method: :delete, :remote => true, :class => 'delete_task' %>
+      
+        <%= f.text_field :title, class:"task_text",  placeholder: task.title  %>
+          <%= link_to 'X', task, method: :delete, :remote => true %>
           <%= f.check_box :is_done  %>
           </br>
-        </div>
+       
       <div class="form-group">
       <%= f.submit %>
       </div>
+    </div>
     <% end %>
   <% end %>
 </div>
