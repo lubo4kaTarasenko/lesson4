@@ -13,7 +13,28 @@
 }
 .right{
   float: right; 
+  margin-right: 100px;
 }
 .w100 {
   width: 100%;
+}
+#delete{
+  border: 2px solid #f53f3f;
+  border-radius: 5px;
+  color: #f53f3f;
+  font-family: "Arial Black";
+  margin-left: 5px;
+  padding: 2px;
+}
+.h0{
+  height:0;
+  overflow: hidden;
+  border: none;
+  textarea{
+    width:100%;
+  }
+}
+.h150{
+  height: 150px;
+  
 }
