@@ -1,6 +1,6 @@
 $(document).ready(function(){
   $("#search_btn").click(function(){
-    $tasksArr = $(".all_tasks")     
+    $tasksArr = $(".all_tasks")    
     searchVal = $("#search_field").val().trim()
     for(var i = 0; i < $tasksArr.length; i++){
       var elem = $tasksArr[i]
@@ -17,7 +17,6 @@ $(document).ready(function(){
 
   $(".task_text").click(function(){
     t = $(this)
-    console.log(t)
     $textArea = t.parents("form").find(".h0")
     $textArea.toggleClass("h150")
   })
