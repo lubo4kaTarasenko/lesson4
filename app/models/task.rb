@@ -6,7 +6,7 @@ class Task < ApplicationRecord
   end
 
   def is_done=(value)
-    if value
+    if value == '1'
       self.status = 1
     else
       self.status = 0

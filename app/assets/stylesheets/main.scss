@@ -19,13 +19,20 @@
   width: 100%;
 }
 #delete{
-  border: 2px solid #f53f3f;
-  border-radius: 5px;
   color: #f53f3f;
   font-family: "Arial Black";
   margin-left: 5px;
   padding: 2px;
+  &:hover{
+    background: #f53f3f;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
+  }
 }
+
 .h0{
   height:0;
   overflow: hidden;
@@ -35,6 +42,14 @@
   }
 }
 .h150{
-  height: 150px;
-  
+  height: 70px;
+
+}
+.task_text{
+  border: none;
+  background-color: rgba(255, 0, 0, 0);
+}
+#date{
+  border: none;
+  background-color: rgba(255, 0, 0, 0);
 }

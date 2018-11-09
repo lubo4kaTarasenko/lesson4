@@ -14,4 +14,11 @@ $(document).ready(function(){
       }
     }
   })
+
+  $(".task_text").click(function(){
+    t = $(this)
+    console.log(t)
+    $textArea = t.parents("form").find(".h0")
+    $textArea.toggleClass("h150")
+  })
 });
