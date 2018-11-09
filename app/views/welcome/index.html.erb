@@ -1,59 +1,78 @@
 <nav class="navbar navbar-dark bg-dark">
-  <div class="right">
-  <input id="search_field"></input>
-  <button id="search_btn"class="btn btn-outline-success" type="button">Search</button>
-</div>
-</nav>
-  
+  <div class="w100">
+    <div class="right">
+      <input id="search_field"></input>
+      <button id="search_btn"class="btn btn-outline-success" type="button">Search</button>
+    </div>
+  </div>
+</nav>  
+
 <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <h1>New Task</h1>
-      <%= form_for @task, remote: true do |f| %>
-        <% @task.errors.full_messages.inspect %>
-        <div class="form-group row">
-          <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
-          <div class="col-sm-10">
-            <%= f.text_field :title, id:"inputTitle", required: true%>
+      <div  id="create">
+        <h1>New Task</h1>
+        <%= form_for @task, remote: true do |f| %>
+          <% @task.errors.full_messages.inspect %>
+          <div class="form-group row">
+            <label for="inputTitle" class="col-sm-2 col-form-label">Title</label>
+            <div class="col-sm-10">
+              <%= f.text_field :title, id:"inputTitle", required: true%>
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
-          <div class="col-sm-10">
-            <%= f.text_area :description, id:"inputDescription", minlength:5%>
+          <div class="form-group row">
+            <label for="inputDescription" class="col-sm-2 col-form-label">Description</label>
+            <div class="col-sm-10">
+              <%= f.text_area :description, id:"inputDescription", minlength:5%>
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
-          <div class="col-sm-10">
-            <%= f.date_field :expire_at, id: "inputDate", min: Date.today.strftime("%F ")%>
+          <div class="form-group row">
+            <label for="inputDate" class="col-sm-2 col-form-label">Date</label>
+            <div class="col-sm-10">
+              <%= f.date_field :expire_at, id: "inputDate", min: Date.today.strftime("%F ")%>
+            </div>
           </div>
-        </div>
-        <div class="form-group row">
-          <div class="col-sm-10">
-            <%= f.button "Create task", class:"btn btn-primary" %></p>
+          <div class="form-group row">
+            <div class="col-sm-10">
+              <%= f.button "Create task", class:"btn btn-primary" %></p>
+            </div>
           </div>
         </div>
       <% end %>
     </div> 
   
-    <div class="col-sm-6" id="task">
+    <div class="col-sm-6">
+      <div id="task">
         <h2>Tasks</h2>
         <% @tasks.each do |task| %>
         <div id="<%= "task_#{task.id}" %>" class="all_tasks">
-          <%= form_for task, remote: true do |f| %>      
-                <%= f.text_field :title, class:"task_text",  placeholder: task.title , required: true %>
-                <p><%= f.text_area :description, minlength:5%> </p>
-                <p><%= f.date_field :expire_at, min: Date.today.strftime("%F ")%></p>
-                <%= link_to 'X', task, method: :delete, :remote => true %>
-                <%= f.check_box :is_done  %>
-                </br>       
-            <div class="form-group">
-            <%= f.submit %>
-            </div>
+          <%= form_for task, remote: true do |f| %>     
+              <div class="form-row">
+                  <div class="form-group col-md-4"> 
+                     <%= f.text_field :title, class:"task_text form-control",  placeholder: task.title , required: true %>
+                  </div>
+                  
+                  <div class="form-group col-md-4"> 
+                    <%= f.date_field :expire_at, min: Date.today.strftime("%F ")%>
+                  </div>
+                  <div class="form-group col-md-1"> 
+                    <%= link_to 'X', task, method: :delete, :remote => true %>
+                  </div> 
+                  <div class="form-group col-md-1"> 
+                    <%= f.check_box :is_done  %>
+                  </div>
+                 <div class="form-group col-md-2">
+                    <%= f.submit "Save" %>
+                  </div>
+                <div class="form-group col-md-12"> 
+                  <%= f.text_area :description, minlength:5%> 
+                </div>       
+               
+              </div
           </div>
           <% end %>
         <% end %>
-      </div>  
+      </div>
+    </div>  
 </div>
 
