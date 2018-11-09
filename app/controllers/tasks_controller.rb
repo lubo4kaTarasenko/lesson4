@@ -11,20 +11,19 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.create(task_params)
-    redirect_to :root
+    @task = Task.new(task_params)
+    @task.save
+    redirect_to :root  
   end
 
   def destroy
     Task.delete(params[:id])
     redirect_to :root
-  end
-
- 
+  end 
 
   private
 
   def task_params
-    params.require(:task).permit(:title, :status, :is_done)
+    params.require(:task).permit(:title, :status, :is_done, :description, :expire_at)
   end
 end
