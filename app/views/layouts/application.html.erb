@@ -21,7 +21,9 @@
           <%= link_to('Logout', destroy_user_session_path, method: :delete) %>  
         </div>            
       <% else %>
+       <div class="left"> 
          <%= link_to('Login', new_user_session_path)  %>  
+        </div>
       <% end %>
       <%= yield :task_search %>
    </nav>
