@@ -53,3 +53,18 @@
   border: none;
   background-color: rgba(255, 0, 0, 0);
 }
+.navbar{
+  color: lime;
+  display: inline-block;
+  width: 100%;
+  .left{
+    display: inline-block;
+    a{
+      color: lime;
+    }
+  }
+}
+#search_btn{
+  border: 1px solid lime;
+}
+

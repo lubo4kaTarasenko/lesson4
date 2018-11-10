@@ -1,4 +1,6 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @task = Task.new
     @tasks = Task.where("title LIKE '%#{params[:q]}%'")
