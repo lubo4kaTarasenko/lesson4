@@ -1,7 +1,8 @@
 class User < ApplicationRecord
-  validates :name, presence: true
-  validates_length_of :name, :minimum => 2
-  validates :password, presence: true
-  validates_length_of :password, :minimum => 6
-  attr_accessor :name, :password
+  validates :name, presence: true, uniqueness: true, length: { minimum: 3 }
+  validates_length_of :password, minimum: 6, allow_blank: true
+
+  has_secure_password validations: false
+
+  has_many :tasks
 end

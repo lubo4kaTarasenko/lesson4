@@ -1,12 +1,11 @@
 class Task < ApplicationRecord
+  belongs_to :user
+
   validates :title, presence: true
   validates :description, presence: true
-  validates_length_of :description, :minimum => 5, :message => 'should minimum 5 characters'
-  validates :expire_at, inclusion: { in: (Date.today..Date.today+5.years), :message => 'should be later than now' }
-  enum status: [0, 1]
-  after_initialize :set_default_status
+  validates_length_of :description, minimum: 5
+  validates :expire_at, inclusion: { in: (Date.today..Date.today+5.years) }
+  enum status: %i(todo done)
 
-  def set_default_status
-    self.status ||= 0
-  end
+  scope :q, ->(q) { where("title LIKE '%#{q}%'") if q }
 end

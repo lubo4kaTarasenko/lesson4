@@ -1,6 +1,0 @@
-<h1>Login</h1>
-<%= form_for @user, url: users_login_path(@user), remote: true do |f| %>
-  <div><%= f.text_field :name %></div>
-  <div><%= f.text_field :password %></div>
-  <div><%= f.submit 'Log in', class: 'btn btn-primary' %></div>
-<% end %>

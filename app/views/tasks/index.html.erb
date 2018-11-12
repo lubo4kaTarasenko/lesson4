@@ -1,11 +1,20 @@
-<% @tasks.each do |task| %>
-  <li class="task-item alert <%= task.status.to_i.zero? ? 'alert-secondary' : 'alert-success' %>" role="alert">
-    <p class="task-title" title="<%= task.description %>"><%= task.title %></p>
-    <div class="buttons-container">
-      <%= button_tag 'X', 'data-url' => task_path(task), 'data-remote' => true, 'data-method' => :delete, class: "btn #{task.status.to_i.zero? ? 'btn-dark' : 'btn-success'}" %>
-      <%= form_for task, remote: true do |f| %>
-        <%= f.check_box :status, checked: !task.status.to_i.zero?, data: {url: task_path(task), remote: true, method: :patch} %>
-      <% end %>
-    </div>
-  </li>
-<% end %>
+<section class="creat-task-section">
+  <h1>New Task</h1>
+
+  <%= render 'form' %>
+</section>
+
+<section class="tasks-container">
+  <h2>Tasks</h2>
+
+  <%= form_tag tasks_path, method: :get, remote: true do |f| %>
+    <%= text_field_tag :q, params[:q], placeholder: 'Search', class: 'search' %>
+  <% end %>
+
+
+  <ul class="tasks-list">
+    <%= render partial: 'task', collection: @tasks %>
+  </ul>
+</section>
+
+
