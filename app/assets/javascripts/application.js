@@ -14,3 +14,18 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    var searchInput = document.querySelector('.search')
+    searchInput.addEventListener('keyup', function () {
+        $.ajax({
+            url: '/tasks?q=' + this.value,
+            data: null,
+            dataType: "html",
+            success: function (data) {
+                document.querySelector('.tasks-list').innerHTML = data
+            }
+        })
+    }, false)
+})
