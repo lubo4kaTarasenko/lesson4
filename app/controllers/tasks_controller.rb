@@ -1,9 +1,11 @@
 class TasksController < ApplicationController
   before_action :require_user
 
+
   def index
     @task = Task.new
-    @tasks = current_user.tasks.q(params[:q])
+    @tasks = current_user.tasks.order(id: :desc).paginate(:page => params[:page], :per_page => 2)
+    
   end
 
   def create

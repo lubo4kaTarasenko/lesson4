@@ -15,6 +15,9 @@
   <ul class="tasks-list">
     <%= render partial: 'task', collection: @tasks %>
   </ul>
+  <div id="pages">
+    <%= will_paginate @tasks %>
+  </div>
 </section>
 
 
