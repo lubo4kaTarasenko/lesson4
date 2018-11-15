@@ -1,6 +1,4 @@
 <section class="creat-task-section">
-  <h1>New Task</h1>
-
   <%= render 'form' %>
 </section>
 
@@ -12,9 +10,9 @@
   <% end %>
 
 
-  <ul class="tasks-list">
+  <div id="task">
     <%= render partial: 'task', collection: @tasks %>
-  </ul>
+  </div>
   <div id="pages">
     <%= will_paginate @tasks %>
   </div>

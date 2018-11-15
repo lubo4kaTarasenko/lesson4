@@ -8,4 +8,18 @@ class Task < ApplicationRecord
   enum status: %i(todo done)
 
   scope :q, ->(q) { where("title LIKE '%#{q}%'") if q }
+
+
+  def is_done
+    status == "done"
+  end
+
+  def is_done=(value)
+    if value == '1'
+      self.status = 1
+    else
+      self.status = 0
+    end
+  end
+
 end

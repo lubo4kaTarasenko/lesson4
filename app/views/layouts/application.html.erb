@@ -19,13 +19,17 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-light" style="background-color: #ffafce;">
+  <nav class="navbar navbar-dark bg-dark">
   <% if user_signed_in? %>    
-        <%= current_user.name %> 
-        <div class="right">
-        <%= link_to('Logout', session_path , method: :delete)%> 
-        </div>
-    <%end%>
+    <%= current_user.name %> 
+    <div class="right">
+      <%= link_to('Logout', session_path , method: :delete)%> 
+    </div>
+  <%else%>
+    <div class="center">
+     <h5>Sign up to create your own task list</h5>
+    </div>
+  <%end%>
       </nav>
   <div class="container">
     <%= yield %>

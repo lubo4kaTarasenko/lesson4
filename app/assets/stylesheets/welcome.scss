@@ -1,80 +1,104 @@
-// Place all the styles related to the welcome controller here.
-// They will automatically be included in application.scss.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-/*
-* {
-  box-sizing: border-box;
+#create{
+  margin-top:20px;
+  background-color: rgb(200, 255, 219);
+  padding: 20px;
+  height: 400px;
+  width: 95%;
 }
-
-p {
-  margin: 0;
-}
-
-ul, li {
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.error-container {
-  p {
-    margin: 0;
-  }
-}
-
-.creat-task-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#task{
+  margin-top:20px;
+  background-color: rgb(232, 243, 253);
+  padding: 20px;
   text-align: center;
-  form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    width: 100%;
+  
+  
+}
+.right{
+  float: right; 
+  margin-right: 100px;
+}
+.w100 {
+  width: 100%;
+}
+#delete{
+  color: #f53f3f;
+  font-family: "Arial Black";
+  margin-left: 5px;
+  padding: 2px;
+  &:hover{
+    background: #f53f3f;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 18px;
   }
 }
 
-.tasks-container {
-  padding: 0 50px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  .tasks-list {
-    width: 100%;
-    margin-top: 20px;
-    .task-item {
-      width: 100%;
-      display: flex;
-      align-self: flex-start;
-      justify-content: space-between;
-      .task-title {
-        margin: 0;
-        font-size: 24px;
-      }
-      .buttons-container {
-        display: flex;
-        .btn {
-          margin-right: 10px;
-        }
-        form {
-          display: flex;
-          align-items: center;
-        }
-      }
-    }
+.h0{
+  height:0;
+  overflow: hidden;
+  border: none;
+  textarea{
+    width:100%;
   }
 }
-*/
+.h150{
+  height: 70px;
+
+}
+.task_text{
+  border: none;
+  background-color: rgba(255, 0, 0, 0);
+}
+#date{
+  border: none;
+  background-color: rgba(255, 0, 0, 0);
+}
+.navbar{
+  color: lime;
+  display: inline-block;
+  width: 100%;
+  
+  a{
+    color: lime;
+  }
+  
+}
+#search_btn{
+  border: 2px solid lime;
+  border-radius: 10px;
+  padding: 2px 10px;
+}
+
+.sign_up{
+  padding-top: 20px;
+}
+.style_auth{
+  padding-top: 10px;
+}
+.done_task{
+  color: rgb(173, 170, 170);
+  text-decoration:line-through;
+
+
+}
 #pages{
   .pagination{
     padding: 7px;
     display: block;
   }
+}
+.container{
+  margin-top: 30px;
+}
+#create_md_btn{
+  border-radius:30%;
+  font-family:'Arial Narrow Bold';
+  font-size: 2em;
+ 
+}
+.center{
+  display: block;
+  margin: auto;
 }

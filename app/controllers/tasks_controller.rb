@@ -4,8 +4,8 @@ class TasksController < ApplicationController
 
   def index
     @task = Task.new
-    @tasks = current_user.tasks.order(id: :desc).paginate(:page => params[:page], :per_page => 2)
-    
+    @tasks = current_user.tasks.q(params[:q]).order(id: :desc).paginate(:page => params[:page], :per_page => 2)
+ 
   end
 
   def create
@@ -16,7 +16,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    task.update(update_task_params)
+    task.update(task_params)
     head 200
   end
 
@@ -31,11 +31,7 @@ class TasksController < ApplicationController
     @task ||= current_user.tasks.find(params[:id])
   end
 
-  def update_task_params
-    params.require(:task).permit(:status)
-  end
-
   def task_params
-    params.require(:task).permit(:title, :description, :expire_at, :status)
+    params.require(:task).permit(:title, :status, :is_done, :description, :expire_at )
   end
 end
