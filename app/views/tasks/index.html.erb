@@ -1,21 +1,29 @@
-<section class="creat-task-section">
-  <%= render 'form' %>
-</section>
-
-<section class="tasks-container">
-  <h2>Tasks</h2>
-
-  <%= form_tag tasks_path, method: :get, remote: true do |f| %>
-    <%= text_field_tag :q, params[:q], placeholder: 'Search', class: 'search' %>
-  <% end %>
-
-
-  <div id="task">
-    <%= render partial: 'task', collection: @tasks %>
+<div class="row">
+  <div class="col-sm-2">
+    <section class="creat-task-section">
+      <%= render 'form' %>
+    </section>
   </div>
-  <div id="pages">
-    <%= will_paginate @tasks %>
+
+  <div class="col-sm-10">
+    <section class="tasks-container">
+        <%= form_tag tasks_path, method: :get, remote: true do |f| %>
+          <div class="search_fm">
+            <%= text_field_tag :q, params[:q], class: 'search' %>
+            <%= select_tag :s, options_for_select([ "todo", "done" ], params[:s] || "done")%>
+            <%= date_field_tag :expire_at, id:"date_search"%>
+            <%= submit_tag "Search", class: "btn btn-outline-success btn-sm", id: "search_btn" %>
+          </div>
+      <% end %>
   </div>
-</section>
+</div>
+      <div id="task">
+      <h2>Tasks</h2>
+        <%= render partial: 'task', collection: @tasks %>
+      </div>
+      <div id="pages">
+        <%= will_paginate @tasks %>
+      </div>
+    </section>
 
 

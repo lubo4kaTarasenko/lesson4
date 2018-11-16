@@ -10,6 +10,7 @@
   background-color: rgb(232, 243, 253);
   padding: 20px;
   text-align: center;
+
   
   
 }
@@ -92,13 +93,19 @@
 .container{
   margin-top: 30px;
 }
-#create_md_btn{
-  border-radius:30%;
-  font-family:'Arial Narrow Bold';
-  font-size: 2em;
- 
-}
+
 .center{
   display: block;
   margin: auto;
+}
+.tasks-container{
+  background-color: rgb(241, 241, 241);
+  padding: 15px;
+
+}
+.search_fm{
+  padding-left: 15px;
+}
+#status{
+  padding-left: 15px;
 }

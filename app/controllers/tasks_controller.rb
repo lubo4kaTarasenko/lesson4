@@ -4,8 +4,8 @@ class TasksController < ApplicationController
 
   def index
     @task = Task.new
-    @tasks = current_user.tasks.q(params[:q]).order(id: :desc).paginate(:page => params[:page], :per_page => 2)
- 
+    @tasks = current_user.tasks.q(params[:q]).s(params[:s]).order(id: :desc).paginate(:page => params[:page], :per_page => 10)
+   puts @tasks.count
   end
 
   def create

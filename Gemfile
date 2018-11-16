@@ -66,3 +66,4 @@ gem 'mini_racer'
 
 gem 'kaminari'
 gem 'will_paginate', '~> 3.1.0'
+gem 'pry'
