@@ -1,18 +1,8 @@
-#create{
-  margin-top:20px;
-  background-color: rgb(200, 255, 219);
-  padding: 20px;
-  height: 400px;
-  width: 95%;
-}
 #task{
   margin-top:20px;
-  background-color: rgb(232, 243, 253);
+  background-color: #adffb3;
   padding: 20px;
-  text-align: center;
-
-  
-  
+  text-align: center;  
 }
 .right{
   float: right; 
@@ -49,8 +39,8 @@
 
 }
 .task_text{
-  border: none;
-  background-color: rgba(255, 0, 0, 0);
+  border: none !important;
+  background-color: rgba(255, 0, 0, 0) !important;
 }
 #date{
   border: none;
@@ -70,19 +60,11 @@
   border: 2px solid lime;
   border-radius: 10px;
   padding: 2px 10px;
-}
-
-.sign_up{
-  padding-top: 20px;
-}
-.style_auth{
-  padding-top: 10px;
+  color: lime;
 }
 .done_task{
   color: rgb(173, 170, 170);
   text-decoration:line-through;
-
-
 }
 #pages{
   .pagination{
@@ -93,13 +75,12 @@
 .container{
   margin-top: 30px;
 }
-
 .center{
   display: block;
   margin: auto;
 }
 .tasks-container{
-  background-color: rgb(241, 241, 241);
+  background-color: #343a40;
   padding: 15px;
 
 }
@@ -108,4 +89,19 @@
 }
 #status{
   padding-left: 15px;
+}
+.search_sel{
+  font-size: 17px;
+  padding: 3px;
+  background-color:#343a40;
+  color: lime;
+  border: 2px solid lime;
+  border-radius: 10px;
+  margin: 2px;
+}
+#date_search{
+  background-color:#343a40;
+  color: lime;
+  border: 2px solid lime;
+  border-radius: 10px;
 }

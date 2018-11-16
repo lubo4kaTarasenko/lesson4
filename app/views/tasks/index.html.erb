@@ -10,7 +10,8 @@
         <%= form_tag tasks_path, method: :get, remote: true do |f| %>
           <div class="search_fm">
             <%= text_field_tag :q, params[:q], class: 'search' %>
-            <%= select_tag :s, options_for_select([ "todo", "done", "all"], params[:s] || "done")%>
+            <%= select_tag :s, options_for_select([ "all statuses", "todo", "done"], params[:s] || "all statuses"), class: "search_sel"%>
+            <%= select_tag :f, options_for_select([ "all dates", "expired", "not expired"], params[:f] || "all dates"), class: "search_sel"%>
             <%= date_field_tag :d, params[:d], id:"date_search"%>
             <%= submit_tag "Search", class: "btn btn-outline-success btn-sm", id: "search_btn" %>
           </div>
@@ -18,11 +19,11 @@
   </div>
 </div>
       <div id="task">
-      <h2>Tasks</h2>
-        <%= render partial: 'task', collection: @tasks %>
-      </div>
-      <div id="pages">
-        <%= will_paginate @tasks %>
+        <h2>Tasks</h2>
+          <%= render partial: 'task', collection: @tasks %>
+        </div>
+        <div id="pages">
+          <%= will_paginate @tasks %>
       </div>
     </section>
 

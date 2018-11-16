@@ -8,8 +8,15 @@ class Task < ApplicationRecord
   enum status: %i(todo done)
 
   scope :q, ->(q) { where("title LIKE '%#{q}%'") if q.present? }
-  scope :s, ->(s) { where(status: s) if s && s != "all" }
+  scope :s, ->(s) { where(status: s) if s && s != "all statuses" }
   scope :d, ->(d) { where(expire_at: d) if d.present? }
+  scope :f, ->(f) do
+    if f == "expired"
+      where("expire_at < ?", Date.today)
+    elsif f == "not expired"
+      where("expire_at >= ?", Date.today)
+    end
+  end
 
   def is_done
     status == "done"

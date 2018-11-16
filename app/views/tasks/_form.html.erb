@@ -1,10 +1,10 @@
-<button type="button" id="create_md_btn" class="btn btn-info btn-lg" data-toggle="modal" data-target="#modalCreate">New</button>
+<button type="button" id="create_md_btn" class="btn btn-success btn-lg" data-toggle="modal" data-target="#modalCreate">New</button>
 <div  id="modalCreate" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog" >
    <div class="modal-content">
       <div class="modal-header">
+        <h4 class="modal-title">Create task</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
       </div>
     <div class="modal-body">
         <%= form_for @task, remote: true do |f| %>
@@ -22,7 +22,7 @@
           </div>
           <%= f.date_field :expire_at, value: @task.expire_at %>
             <%= @task.errors[:expire_at].first %>
-          <%= f.button :OK %>
+          <%= f.button :Save %>
         <% end %>
         <% if notice %>
           <div class="error-container alert alert-danger" role="alert">
@@ -32,9 +32,6 @@
           </div>
         <% end %>
     </div>
-     <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
     </div>
   </div>
 </div>
