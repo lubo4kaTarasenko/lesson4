@@ -59,4 +59,7 @@ h1{
     background: black;
     color: lime;
 }
-
+#copy{
+  color: white;
+  margin-top: 10px;
+}
