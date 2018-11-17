@@ -31,5 +31,4 @@ class Task < ApplicationRecord
       self.status = 0
     end
   end
-
 end

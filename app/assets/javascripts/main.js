@@ -19,4 +19,12 @@ function bindTaskElem(){
     $textField.toggleClass("done_task") 
   })
 }
-$(bindTaskElem)
+
+$(function(){
+  bindTaskElem();
+  $('#show_snake').click(function(){
+    $('#snake_container').toggleClass('hidden'); 
+    $('iframe').attr('src', '/snake/snake.html'); 
+    $('iframe').focus();
+  })
+});
