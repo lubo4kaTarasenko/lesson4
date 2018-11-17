@@ -18,11 +18,13 @@ class Task < ApplicationRecord
     end
   end
 
-  def is_done
+  def done?
     status == "done"
   end
 
-  def is_done=(value)
+  alias done done?
+
+  def done=(value)
     if value == '1'
       self.status = 1
     else
